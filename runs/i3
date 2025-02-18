@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# apparently it may be one or the other...
+sudo pacman -S i3-wm
+sudo pacman -S i3
