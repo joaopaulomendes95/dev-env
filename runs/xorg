@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-sudo pacman -S xorg xorg-apps xorg-xinit xorg-xlsfonts xdotool xclip xsel
-

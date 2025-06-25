@@ -1,0 +1,3 @@
+# theming, xcursor, nvidia, toolkit
+export XCURSOR_SIZE=24
+export HYPRCURSOR_SIZE=24

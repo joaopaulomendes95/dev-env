@@ -1,0 +1,27 @@
+{
+    "window.zoomLevel": 1,
+
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.tree.indent": 8,
+
+
+    
+    "editor.renderLineHighlight": "gutter",
+    "editor.fontFamily": "Fira Code, monospace",
+    "editor.fontsize": 16,
+    "editor.fontLigatures": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.lineNumbers": "relative",
+    "editor.rulers": [80, 120],
+    "editor.minimap.enabled": false,
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.vertical": "hidden",
+
+
+    "explorer.compactFolders": false,
+
+    "breadcrumbs.enabled": false,
+    "workbench.activityBar.location": "top"
+
+}
