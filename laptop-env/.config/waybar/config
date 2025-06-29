@@ -1,0 +1,41 @@
+{
+    "position": "top",
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-right": ["pulseaudio", "network", "backlight", "temperature", "cpu", "memory", "battery", "clock", "tray"],
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "format": "󱑃 {:%I:%M }",
+        "format-alt": "󱑃 {:%Y-%m-%d}"
+    },
+    "cpu": {
+        "format": "  {usage}%"
+    },
+    "memory": {
+        "format": "  {used}G"
+    },
+    "temperature": {
+        "format": " {temperatureC}°C "
+    },
+    "backlight": {
+        "format": "  {percent}% "
+    },
+    "battery": {
+        "format": "⏻  {capacity}% "
+    },
+    "network": {
+        "format-wifi": "  ",
+        "format-ethernet": "󰈀  ",
+        "format-disconnected": "󰤠  ",
+        "interval": 5
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}% ",
+        "format-muted": "  ",
+        "format-icons": {
+            "default": ["", "", " "]
+        },
+        "on-click": "pavucontrol"
+    }
+}
