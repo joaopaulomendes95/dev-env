@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+
+yay -S brave-bin
+yay -S vesktop-bin
+yay -S vscodium-bin
+yay -S vscodium-bin-marketplace
+yay -S hyprshade
+yay -S hyprshot
+yay -S qview
+yay -S wlogout

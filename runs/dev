@@ -1,13 +1,31 @@
 #!/usr/bin/env bash
 
-paru -S --noconfirm --needed gimp tldr go fzf rofi-wayland btop bc stylua node npm
-go install github.com/air-verse/air@latest
-paru -S love --noconfirm --needed
-paru -S ttf-font-awesome waybar ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols
-paru -S hyprlock --noconfirm --needed
-paru -S ghostty
-paru -S hyprpaper hyprshot
-paru -Syu wlogout-git --noconfirm --needed
+# install dev stuff
+sudo pacman -S git
+sudo pacman -S lazygit
+sudo pacman -S tmux
+sudo pacman -S go
+sudo pacman -S rust
+sudo pacman -S fzf
+sudo pacman -S btop
+sudo pacman -S tldr
+sudo pacman -S curl
+sudo pacman -S ripgrep
+sudo pacman -S wget
 
-paru -S ffmpeg aalib ascii-image-converter-bin --noconfirm
-curl -sSfL https://get.tur.so/install.sh | bash
+# install yay
+git clone https://aur.archlinux.org/yay
+cd yay
+makepkg -si
+cd ..
+rm -rf yay/
+
+# install ohmyzsh
+sudo pacman -S zsh
+chsh -s $(which zsh)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
+# install go stuff
+go install github.com/air-verse/air@latest
