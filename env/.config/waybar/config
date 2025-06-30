@@ -1,51 +1,59 @@
-
+// TODO: add disk %
 {
     "position": "top",
-    "height": 32,
     "modules-left": ["hyprland/workspaces"],
-    "modules-right": ["pulseaudio", "cpu", "memory","network", "clock" ,"tray"],
+    "modules-right": ["pulseaudio", "network", "backlight", "temperature", "cpu", "memory", "battery", "clock", "tray"],
+
     "tray": {
         "spacing": 10
     },
+
     "clock": {
-    	"interval": 1,
-    	"timezone": "Europe/Lisbon",
-    	"format": " {:%a %d %b   %I:%M %p}",
-    	"tooltip": false,
+        "format": " 󱑃 {:%I:%M } ",
+        "format-alt": " 󱑃 {:%Y-%m-%d} ",
+    	"tooltip": false
     },
+
     "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
+        "format": "  {usage}% ",
+    	"tooltip": false
     },
+    
     "memory": {
-        "format": "{}% "
+        "format": "  {used}G ",
+    	"tooltip": false
     },
+
+    "temperature": {
+        "format": "  {temperatureC}°C ",
+    	"tooltip": false
+    },
+
+    "backlight": {
+        "format": "  {percent}% ",
+    	"tooltip": false
+    },
+    
     "battery": {
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% ",
-        "format-charging": "{capacity}%",
-        "format-plugged": "{capacity}%",
-        "format-alt": "{time} ",
-        "format-icons": ["", "", "", "", ""]
+        "format": "  {capacity}% ",
+    	"tooltip": false
     },
+
     "network": {
-        "format-wifi": " Wired ",
-        "format-ethernet": " Wired ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": " Unwired",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-wifi": "   ",
+        "format-ethernet": " 󰈀  ",
+        "format-disconnected": " 󰤠  ",
+        "interval": 5,
+    	"tooltip": false
     },
+
     "pulseaudio": {
-        "format": "{volume}%  / {format_source}",
-        "format-bluetooth": "{volume}%    {format_source}",
-        "format-bluetooth-muted": " {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "on-click": "pulsemixer"
+        "format": " {icon}{volume}% ",
+        "format-muted": "   ",
+        "format-icons": {
+            "default": ["  ", "  ", "   "]
+        },
+        "on-click": "pavucontrol",
+    	"tooltip": false
     }
 }

@@ -1,4 +1,2 @@
-#!/bin/bash
-
-killall waybar
-nohup waybar >/dev/null
+#!/usr/bin/env bash
+pkill waybar && hyprctl dispatch exec waybar
