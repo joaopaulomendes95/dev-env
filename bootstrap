@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+log() { echo "[INFO] $*"; }
+
+main() {
+  config_args    # parse flags
+  install_core
+  install_aur
+  setup_shell
+  system_setup
+  cleanup
+}
+
+install_core() {
+  sudo pacman -Sy --needed --noconfirm base-devel git ...
+}
+
+install_aur() {
+  if ! command -v yay &>/dev/null; then
+    # clone & install yay
+  fi
+  yay -S --needed --noconfirm brave-bin vscodium-bin ...
+}
+
+setup_shell() {
+  # install zsh, ohmyzsh, plugins, aliases, theme
+}
+
+system_setup() {
+  sudo pacman -S reflector
+  # enable timer/service
+}
+
+cleanup() { 
+  # clear caches
+}
+
+main "$@"

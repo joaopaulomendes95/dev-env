@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # install dev stuff
-sudo pacman -S git
 sudo pacman -S lazygit
 sudo pacman -S tmux
 sudo pacman -S go
@@ -14,6 +13,8 @@ sudo pacman -S ripgrep
 sudo pacman -S wget
 
 # install yay
+
+sudo pacman -Sy --needed --noconfirm base-devel git wget
 git clone https://aur.archlinux.org/yay
 cd yay
 makepkg -si
