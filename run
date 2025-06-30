@@ -19,7 +19,7 @@ while [[ $# -gt 0 ]]; do
         dry_run="1"
     else
         grep="$1"
-    fi
+		fi
     shift
 done
 
