@@ -1,149 +1,61 @@
 * {
   border: 4px;
-  font-family: "JetBrainsMono Nerd Font";
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font", monospace;
   font-size: 12px;
 }
 
-window#waybar {
-  background-color: rgba(0, 0, 0, 0.9);
+#waybar {
+  background-color: rgba(0, 0, 0, 0.6);
   color: #ffffff;
 }
 
-#workspaces button {
-  color: #ffffff;
-  box-shadow: inset 0 -3px transparent;
-}
-
-#workspaces button:hover {
-  background: rgba(0, 0, 0, 0.9);
-}
-
-#workspaces button.focused {
-  background-color: #64727d;
-}
-
-#workspaces button.urgent {
-  background-color: #eb4d4b;
-}
-
-#mode {
-  background-color: #64727d;
-}
-
+/* General styling for modules */
+#window,
+#workspaces,
 #clock,
 #battery,
+#battery.charging,
 #cpu,
 #memory,
-#temperature,
 #backlight,
 #network,
-#pulseaudio,
-#tray,
-#mode,
-#idle_inhibitor,
-
-#window,
-#workspaces {
+#pulseaudio {
+  color: #ffffff;
   margin: 0 4px;
 }
 
-/* If workspaces is the leftmost module, omit left margin */
+/* Special case for urgent workspace */
+#workspaces button.urgent {
+  color: #eb4d4b;
+}
+
+/* Active workspace highlight */
+#workspaces button.active {
+  font-weight: bold;
+  box-shadow: inset 0 -1px #ffffff;
+}
+
+/* Remove margin on edges */
 .modules-left > widget:first-child > #workspaces {
   margin-left: 0;
 }
-
-/* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #workspaces {
   margin-right: 0;
 }
 
-#clock {
-  background-color: #000000;
-  color: white;
-}
-
-#battery {
-  background-color: #000000;
-  color: white;
-}
-
+/* Battery charging highlight */
 #battery.charging {
-  background-color: #000000;
-  color: #ffffff;
+  color: #00ff04;
 }
 
+/* Blinking red battery when critical and not charging */
 @keyframes blink {
   to {
-    background-color: #ffffff;
-    color: #000000;
+    color: #ffffff;
   }
 }
-
 #battery.critical:not(.charging) {
-  background-color: #f53c3c;
-  color: #ffffff;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-label:focus {
-  background-color: #000000;
-}
-
-#cpu {
-  background-color: #000000;
-  color: #ffffff;
-}
-
-#memory {
-  background-color: #000000;
-  color: white;
-}
-
-#backlight {
-  background-color: #000000;
-  color: white;
-}
-
-#network {
-  background-color: #000000;
-  color: white;
-}
-
-#network.disconnected {
-  background-color: #f53c3c;
-}
-
-#pulseaudio {
-  background-color: #000000;
-  color: #ffffff;
-}
-
-#pulseaudio.muted {
-  background-color: #000000;
-  color: #ffffff;
-}
-
-#temperature {
-  background-color: #000000;
-}
-
-#temperature.critical {
-  background-color: #eb4d4b;
-}
-
-#tray {
-  background-color: #2980b9;
-}
-
-#idle_inhibitor {
-  background-color: #2d3436;
-}
-
-#idle_inhibitor.activated {
-  background-color: #ecf0f1;
-  color: #2d3436;
+  color: #ff0000;
+  animation: blink 0.5s linear infinite alternate;
 }
