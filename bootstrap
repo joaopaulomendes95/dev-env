@@ -4,25 +4,37 @@ set -euo pipefail
 log() { echo "[INFO] $*"; }
 
 main() {
+    log "Installing core packages..."
     install_core
+
+    log "Installing aur helper..."
     install_aur
+
+    log "Setting up zsh..."
     setup_shell
+
+    log "Installing hyprland environment..."
     install_hypr
+
+    log "Installing aur packages for hyprland..."
     install_hypr_yay
-    isntall_dev
+
+    log "Installing devolpment packages..."
+    install_dev
 }
 
 install_core() {
-    sudo pacman -Sy --needed --noconfirm base-devel git wget lazygit tmux go rust fzf btop tldr curl ripgrep wget
+    sudo pacman -Sy --needed --noconfirm base-devel git wget lazygit tmux go \
+        rust fzf btop tldr curl ripgrep wget
 }
 
 install_aur() {
     if ! command -v yay &>/dev/null; then
         # clone & install yay
         git clone https://aur.archlinux.org/yay
-        cd yay
-        makepkg -si
-        cd ..
+        pushd yay
+        makepkg -si --noconfirm
+        popd
         rm -rf yay/
     fi
 }
@@ -30,18 +42,33 @@ install_aur() {
 setup_shell() {
     # install zsh, ohmyzsh, plugins, aliases, theme
     sudo pacman -Sy --needed --noconfirm zsh
-    chsh -s $(which zsh)
+    chsh -s "$(which zsh)"
+
+    rehash
+
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
+    git clone https://github.com/zsh-users/zsh-autosuggestions.git \
+        "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+        "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 }
 
 install_hypr() {
-    sudo pacman -S --neded --noconfirm cliphist dolphin dolphin-plugins dunst gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly ffmpeg hypridle hyprland-qt-support hyprland hyprlock hyprpaper hyprpicker hyprpolkitagent kitty kio-admin lf mpv nm-applet pipewire pipewire-alsa pipewire-jack pipewire-pulse qt5-wayland qt6-wayland stow ttf-font-awesome ttf-jetbrains-mono-nerd ttf-open-sans noto-fonts xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-users-dirs-gtk waybar wireplumber wofi
+    sudo pacman -S --needed --noconfirm cliphist dolphin dolphin-plugins dunst \
+        gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad \
+        gst-plugins-ugly ffmpeg hypridle hyprland-qt-support hyprland hyprlock \
+        hyprpaper hyprpicker hyprpolkitagent kitty kio-admin lf mpv nm-applet \
+        pipewire pipewire-alsa pipewire-jack pipewire-pulse qt5-wayland qt6-wayland \
+        stow ttf-font-awesome ttf-jetbrains-mono-nerd ttf-open-sans noto-fonts \
+        xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-users-dirs-gtk \
+        waybar wireplumber wofi
 }
 
 install_hypr_yay() {
-    yay -S --needed --noconfirm brave-bin vesktop-bin vscodium-bin vscodium-bin-marketplace hyprshade hyprshot qview wlogout
+    yay -S --needed --noconfirm brave-bin vesktop-bin vscodium-bin \
+        vscodium-bin-marketplace hyprshade hyprshot qview wlogout
 }
 
 install_dev() {
