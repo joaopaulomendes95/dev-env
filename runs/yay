@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-git clone https://aur.archlinux.org/yay
-pushd yay
-makepkg -si --noconfirm
-popd
-rm -rf yay/
+if ! command -v yay &>/dev/null; then
+    # clone & install yay
+    git clone https://aur.archlinux.org/yay
+    pushd yay
+    makepkg -si --noconfirm
+    popd
+    rm -rf yay/
+fi

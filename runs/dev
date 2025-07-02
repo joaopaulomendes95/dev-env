@@ -1,32 +1,4 @@
 #!/usr/bin/env bash
 
-# install dev stuff
-sudo pacman -S lazygit
-sudo pacman -S tmux
-sudo pacman -S go
-sudo pacman -S rust
-sudo pacman -S fzf
-sudo pacman -S btop
-sudo pacman -S tldr
-sudo pacman -S curl
-sudo pacman -S ripgrep
-sudo pacman -S wget
-
-# install yay
-
-sudo pacman -Sy --needed --noconfirm base-devel git wget
-git clone https://aur.archlinux.org/yay
-cd yay
-makepkg -si
-cd ..
-rm -rf yay/
-
-# install ohmyzsh
-sudo pacman -S zsh
-chsh -s $(which zsh)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-
 # install go stuff
 go install github.com/air-verse/air@latest
