@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+git clone https://aur.archlinux.org/yay
+pushd yay
+makepkg -si --noconfirm
+popd
+rm -rf yay/

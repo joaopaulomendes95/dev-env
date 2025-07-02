@@ -1,41 +1,10 @@
 #!/usr/bin/env bash
 
-sudo pacman -S cliphist
-sudo pacman -S dolphin
-sudo pacman -S dolphin-plugins
-sudo pacman -S dunst
-sudo pacman -S gstreamer
-sudo pacman -S gst-libav
-sudo pacman -S gst-plugins-base
-sudo pacman -S gst-plugins-good
-sudo pacman -S gst-plugins-bad
-sudo pacman -S gst-plugins-ugly
-sudo pacman -S ffmpeg
-sudo pacman -S hypridle
-sudo pacman -S hyprland-qt-support
-sudo pacman -S hyprland
-sudo pacman -S hyprlock
-sudo pacman -S hyprpaper
-sudo pacman -S hyprpicker
-sudo pacman -S hyprpolkitagent
-sudo pacman -S kitty
-sudo pacman -S kio-admin
-sudo pacman -S lf
-sudo pacman -S mpv
-sudo pacman -S nm-applet
-sudo pacman -S pipewire
-sudo pacman -S pipewire-alsa
-sudo pacman -S pipewire-jack
-sudo pacman -S pipewire-pulse
-sudo pacman -S qt5-wayland
-sudo pacman -S qt6-wayland
-sudo pacman -S ttf-font-awesome
-sudo pacman -S ttf-jetbrains-mono-nerd
-sudo pacman -S ttf-open-sans
-sudo pacman -S noto-fonts
-sudo pacman -S xdg-desktop-portal-hyprland
-sudo pacman -S xdg-desktop-portal-gtk
-sudo pacman -S xdg-users-dirs-gtk
-sudo pacman -S waybar
-sudo pacman -S wireplumber
-sudo pacman -S wofi
+sudo pacman -S --needed --noconfirm cliphist dolphin dolphin-plugins dunst \
+    gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad \
+    gst-plugins-ugly ffmpeg hypridle hyprland-qt-support hyprland hyprlock \
+    hyprpaper hyprpicker hyprpolkitagent kitty kio-admin lf mpv nm-applet \
+    pipewire pipewire-alsa pipewire-jack pipewire-pulse qt5-wayland qt6-wayland \
+    stow ttf-font-awesome ttf-jetbrains-mono-nerd ttf-open-sans noto-fonts \
+    xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-users-dirs-gtk \
+    waybar wireplumber wofi
