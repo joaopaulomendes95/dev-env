@@ -1,12 +1,18 @@
 #!/usr/bin/env bash
 
+# install zsh
 sudo pacman -Sy --needed --noconfirm zsh
+# change default shell to zsh
 chsh -s "$(which zsh)"
 
-rehash
+# TODO: troubles with this
+# idk if this is needed
+# rehash
 
+# install ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# set up zsh plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions.git \
     "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
 

@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-sudo pacman -S --needed --noconfirm cliphist dolphin dolphin-plugins dunst \
-    gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad \
-    gst-plugins-ugly ffmpeg hypridle hyprland-qt-support hyprland hyprlock \
-    hyprpaper hyprpicker hyprpolkitagent kitty kio-admin lf mpv network-manager-applet \
-    pipewire pipewire-alsa pipewire-jack pipewire-pulse qt5-wayland qt6-wayland \
-    stow ttf-font-awesome ttf-jetbrains-mono-nerd ttf-opensans noto-fonts \
-    xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-user-dirs waybar \
-    wireplumber wofi
+sudo pacman -S --needed --noconfirm archlinux-xdg-menu cliphist dolphin \
+    dolphin-plugins dunst gstreamer gst-libav gst-plugins-base gst-plugins-good \
+    gst-plugins-bad gst-plugins-ugly ffmpeg hypridle hyprland-qt-support \
+    hyprland hyprlock hyprpaper hyprpicker hyprpolkitagent kservice5 kitty \
+    kio-admin lf mpv nm-applet pipewire pipewire-alsa pipewire-jack pipewire-pulse \
+    qt5-wayland qt6-wayland stow ttf-font-awesome ttf-jetbrains-mono-nerd ttf-open-sans \
+    noto-fonts xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-users-dirs-gtk \
+    waybar wireplumber wofi
