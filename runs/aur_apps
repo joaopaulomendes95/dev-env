@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
 yay -S --needed --noconfirm brave-bin vesktop-bin vscodium-bin \
-    vscodium-bin-marketplace hyprshade hyprshot qview wlogout
+    vscodium-bin-marketplace hyprshade hyprshot qview \
+    wlogout

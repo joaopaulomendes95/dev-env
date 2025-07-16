@@ -24,11 +24,13 @@ main() {
 }
 
 install_core() {
+    # install core packages
     sudo pacman -Sy --needed --noconfirm base-devel git wget lazygit tmux go \
         rust fzf btop tldr curl ripgrep wget
 }
 
 install_aur() {
+    # check if yay is installed
     if ! command -v yay &>/dev/null; then
         # clone & install yay
         git clone https://aur.archlinux.org/yay
@@ -40,14 +42,19 @@ install_aur() {
 }
 
 setup_shell() {
-    # install zsh, ohmyzsh, plugins, aliases, theme
+    # install zsh
     sudo pacman -Sy --needed --noconfirm zsh
+    # change default shell to zsh
     chsh -s "$(which zsh)"
 
-    rehash
+    # TODO: troubles with this
+    # idk if this is needed
+    # rehash
 
+    # install ohmyzsh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+    # set up zsh plugins
     git clone https://github.com/zsh-users/zsh-autosuggestions.git \
         "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
 
@@ -56,17 +63,19 @@ setup_shell() {
 }
 
 install_hypr() {
-    sudo pacman -S --needed --noconfirm cliphist dolphin dolphin-plugins dunst \
-        gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad \
-        gst-plugins-ugly ffmpeg hypridle hyprland-qt-support hyprland hyprlock \
-        hyprpaper hyprpicker hyprpolkitagent kitty kio-admin lf mpv nm-applet \
-        pipewire pipewire-alsa pipewire-jack pipewire-pulse qt5-wayland qt6-wayland \
-        stow ttf-font-awesome ttf-jetbrains-mono-nerd ttf-open-sans noto-fonts \
-        xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-users-dirs-gtk \
+    # install hyprland and common dependencies
+    sudo pacman -S --needed --noconfirm archlinux-xdg-menu cliphist dolphin \
+        dolphin-plugins dunst gstreamer gst-libav gst-plugins-base gst-plugins-good \
+        gst-plugins-bad gst-plugins-ugly ffmpeg hypridle hyprland-qt-support \
+        hyprland hyprlock hyprpaper hyprpicker hyprpolkitagent kservice5 kitty \
+        kio-admin lf mpv nm-applet pipewire pipewire-alsa pipewire-jack pipewire-pulse \
+        qt5-wayland qt6-wayland stow ttf-font-awesome ttf-jetbrains-mono-nerd ttf-open-sans \
+        noto-fonts xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-users-dirs-gtk \
         waybar wireplumber wofi
 }
 
 install_hypr_yay() {
+    # install aur packages for hyprland and other utilities
     yay -S --needed --noconfirm brave-bin vesktop-bin vscodium-bin \
         vscodium-bin-marketplace hyprshade hyprshot qview wlogout
 }
@@ -76,4 +85,5 @@ install_dev() {
     go install github.com/air-verse/air@latest
 }
 
+# Run the main function
 main "$@"
