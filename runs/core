@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 sudo pacman -Sy --needed --noconfirm base-devel git wget lazygit tmux go \
-    rust fzf btop tldr curl ripgrep wget
+    rust fzf btop tldr curl ripgrep wget nodejs npm

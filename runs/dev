@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 
 # install go stuff
+# air
 go install github.com/air-verse/air@latest
+# go blueprint
+go install github.com/melkeydev/go-blueprint@latest
